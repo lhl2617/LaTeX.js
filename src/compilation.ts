@@ -17,6 +17,7 @@ const compileForEditor = async (editor: vscode.TextEditor, alertWhenSuccess: boo
         });
     }
     catch (err) {
+        console.error(err);
         output(`[Compilation failed]: ${err}`);
         vscode.window.showErrorMessage(`LaTeX.js compilation failed. Please refer to LaTeX.js output for details`);
     }

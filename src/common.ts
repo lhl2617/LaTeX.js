@@ -1,21 +1,8 @@
 // handles latex.js path and configuration etc.
 import * as vscode from 'vscode';
-import * as which from 'which';
-
-const getLatexJsPath = async (doc: vscode.TextDocument | undefined = undefined): Promise<string> => {
-    const config = await getConfiguration(doc);
-    const p: string = config.pathToLatexJs;
-    // set in config
-    if (p.length) { return p; }
-    
-    try {
-        // use default
-        return which(`latex.js`);
-    } catch (err) {
-        console.error(`LaTeX.js: ${err}`);
-        throw new Error(`Cannot get path to \`latex.js\`. Please make sure you have installed LaTeX.js globally or set the specific path in settings.`);
-    }
-};
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { parse, HtmlGenerator } from 'latex.js';
 
 // wrapper to get the configuration from a document if provided
 export const getConfiguration = async (doc: vscode.TextDocument | undefined = undefined) => {
@@ -40,20 +27,19 @@ export const getConfiguration = async (doc: vscode.TextDocument | undefined = un
 
 const getLatexJsGeneratorOptionsFromConfig = async (doc: vscode.TextDocument | undefined = undefined) => {
     const generatorOptions = (await getConfiguration(doc)).generatorOptions;
-    const { documentClass, hyphenate, styles } = generatorOptions;
-    return {
-        documentClass,
-        hyphenate,
-        styles
+    const ret = {
+        documentClass: generatorOptions.documentClass ?? `article`,
+        hyphenate: generatorOptions.hyphenate ?? true,
+        styles: generatorOptions.styles ?? [],
     };
+    return ret;
 };
 
 // compile text in given editor. throwable.
 export const compileLatexJs = async (editor: vscode.TextEditor): Promise<string> => {
     const text = editor.document.getText();
-    const latexJsPath = await getLatexJsPath();
-    const { parse, HtmlGenerator } = await import(latexJsPath);
     const generatorOptions = await getLatexJsGeneratorOptionsFromConfig(editor.document);
+    console.log(generatorOptions);
     const generator = new HtmlGenerator(generatorOptions);
     const html: string = parse(text, { generator }).htmlDocument().documentElement.outerHTML;
     return html;

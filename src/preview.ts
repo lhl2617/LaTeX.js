@@ -17,6 +17,7 @@ const updateWebviewForEditor = async (editor: vscode.TextEditor, panel: vscode.W
         html = await compileLatexJs(editor);
     }
     catch (err) {
+        console.error(err);
         output(`[Preview failed]: ${err}`);
         html = `<h1>LaTeX.js Compilation Failed</h1>${err}`;
     }
