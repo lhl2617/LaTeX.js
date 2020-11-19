@@ -1,16 +1,21 @@
-/*---------------------------------------------------------
- * Copyright (C) Microsoft Corporation. All rights reserved.
- *--------------------------------------------------------*/
-
-
 import * as vscode from 'vscode';
-import { add } from './math';
+import { compile } from './compilation';
+import { openPreview, openPreviewToTheSide } from './preview';
 
-export function activate(context: vscode.ExtensionContext) {
-
-    const disposable = vscode.commands.registerCommand('extension.helloWebpack', () => {
-        vscode.window.showInformationMessage(`41 + 1 = ${add(41, 1)}`);
-    });
-
-    context.subscriptions.push(disposable);
-}
+export const activate = (context: vscode.ExtensionContext) => {
+    context.subscriptions.push(
+        vscode.commands.registerCommand(`extension.openPreview`, () => {
+            openPreview(context);
+        })
+    );
+    context.subscriptions.push(
+        vscode.commands.registerCommand(`extension.openPreviewToTheSide`, () => {
+            openPreviewToTheSide(context);
+        })
+    );
+    context.subscriptions.push(
+        vscode.commands.registerCommand(`extension.compile`, () => {
+            compile(context);
+        })
+    );
+};
