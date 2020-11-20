@@ -2,7 +2,6 @@
 
 Provides [LaTeX.js](https://latex.js.org) preview and compilation in VSCode.
 
-
 ![Preview](./assets/anim.gif)
 
 > Showcase document by Michael Brade
@@ -16,7 +15,7 @@ Provides [LaTeX.js](https://latex.js.org) preview and compilation in VSCode.
   
   
 ## Usage Guide
-* Install this extension
+* [Install this extension](https://marketplace.visualstudio.com/items?itemName=lhl2617.latex-js-preview)
 * Open any valid LaTeX.js-supported file
 * Open the command palette (Windows: `Ctrl+Shift+P`, Mac: `Cmd+Shift+P`) 
 * Run the `LaTeX.js: Open Preview` or `LaTeX.js: Open Preview to The Side` command.

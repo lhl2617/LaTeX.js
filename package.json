@@ -5,6 +5,7 @@
 	"description": "Provides preview of LaTeX.js in VSCode.",
 	"version": "0.0.1",
 	"preview": true,
+	"license": "LICENSE",
 	"publisher": "lhl2617",
 	"icon": "assets/icon.png",
 	"engines": {
@@ -96,7 +97,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^12.19.5",
-		"@types/vscode": "^1.51.0",
+		"@types/vscode": "^1.32.0",
 		"@types/which": "^1.3.2",
 		"@typescript-eslint/eslint-plugin": "^3.10.1",
 		"@typescript-eslint/parser": "^3.10.1",
