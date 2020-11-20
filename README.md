@@ -1,6 +1,6 @@
 # VSCode LaTeX.js Preview
 
-Provides [LaTeX.js](https://latex.js.org) preview and compilation in VSCode.
+Provides [LaTeX.js](https://latex.js.org) preview in VSCode.
 
 ![Preview](./assets/anim.gif)
 
