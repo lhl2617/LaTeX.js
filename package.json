@@ -1,8 +1,8 @@
 {
-	"name": "latex.js-vscode",
-	"displayName": "latex.js",
+	"name": "latex-js-preview",
+	"displayName": "VSCode LaTeX.js Preview",
 	"repository": "https://github.com/lhl2617/LaTeX.js",
-	"description": "Provides preview and compilation of LaTeX.js in VSCode.",
+	"description": "Provides preview of LaTeX.js in VSCode.",
 	"version": "0.0.1",
 	"preview": true,
 	"publisher": "lhl2617",
@@ -21,7 +21,6 @@
 	"activationEvents": [
 		"onCommand:latex.js.openPreview",
 		"onCommand:latex.js.openPreviewToTheSide",
-		"onCommand:latex.js.compile",
 		"onLanguage:tex",
 		"onLanguage:latex"
 	],
@@ -32,15 +31,19 @@
 				"command": "latex.js.openPreview",
 				"title": "LaTeX.js: Open Preview",
 				"group": "Preview",
-				"description": "Open LaTeX.js HTML preview of the current file.",
-				"when": "editorLangId == tex || editorLangId == latex || resourceExtname == .tex"
+				"description": "Open LaTeX.js HTML preview of the current file."
 			},
 			{
 				"command": "latex.js.openPreviewToTheSide",
 				"title": "LaTeX.js: Open Preview to The Side",
 				"group": "Preview",
-				"description": "Open LaTeX.js HTML preview of the current file to the side.",
-				"when": "editorLangId == tex || editorLangId == latex || resourceExtname == .tex"
+				"description": "Open LaTeX.js HTML preview of the current file to the side."
+			},
+			{
+				"command": "latex.js.refreshPreview",
+				"title": "LaTeX.js: Refresh Preview",
+				"group": "Preview",
+				"description": "Refresh preview of the current file."
 			}
 		],
 		"configuration": {

@@ -12,8 +12,6 @@ Open LaTeX.js HTML preview of the current file.
 
 Open LaTeX.js HTML preview of the current file to the side.
 
-## Compilation
+### LaTeX.js: Refresh Preview
 
-### LaTeX.js: Compile
-
-Compile the current file
+Refresh preview of the current file.
