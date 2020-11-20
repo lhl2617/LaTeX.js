@@ -3,7 +3,7 @@
 	"displayName": "LaTeX.js Preview",
 	"repository": "https://github.com/lhl2617/LaTeX.js",
 	"description": "Provides preview of LaTeX.js in VSCode.",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"preview": true,
 	"license": "LICENSE",
 	"publisher": "lhl2617",
