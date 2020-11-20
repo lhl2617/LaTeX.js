@@ -1,44 +1,46 @@
 {
 	"name": "latex.js-vscode",
 	"displayName": "latex.js",
+	"repository": "https://github.com/lhl2617/LaTeX.js",
 	"description": "Provides preview and compilation of LaTeX.js in VSCode.",
 	"version": "0.0.1",
+	"preview": true,
 	"publisher": "lhl2617",
+	"icon": "assets/icon.png",
 	"engines": {
 		"vscode": "^1.32.0"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages"
+	],
+	"keywords": [
+		"latex.js",
+		"latex",
+		"tex"
 	],
 	"activationEvents": [
-		"onCommand:extension.openPreview",
-		"onCommand:extension.openPreviewToTheSide",
-		"onCommand:extension.compile",
+		"onCommand:latex.js.openPreview",
+		"onCommand:latex.js.openPreviewToTheSide",
+		"onCommand:latex.js.compile",
 		"onLanguage:tex",
-		"onLanguage:latex",
-		"onLanguage:latex-expl3",
-		"onLanguage:doctex"
+		"onLanguage:latex"
 	],
 	"main": "./out/extension",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.openPreview",
+				"command": "latex.js.openPreview",
 				"title": "LaTeX.js: Open Preview",
 				"group": "Preview",
-				"description": "Open LaTeX.js HTML preview of the current file."
+				"description": "Open LaTeX.js HTML preview of the current file.",
+				"when": "editorLangId == tex || editorLangId == latex || resourceExtname == .tex"
 			},
 			{
-				"command": "extension.openPreviewToTheSide",
+				"command": "latex.js.openPreviewToTheSide",
 				"title": "LaTeX.js: Open Preview to The Side",
 				"group": "Preview",
-				"description": "Open LaTeX.js HTML preview of the current file to the side."
-			},
-			{
-				"command": "extension.compile",
-				"title": "LaTeX.js: Compile",
-				"group": "Compilation",
-				"description": "Compile the current file"
+				"description": "Open LaTeX.js HTML preview of the current file to the side.",
+				"when": "editorLangId == tex || editorLangId == latex || resourceExtname == .tex"
 			}
 		],
 		"configuration": {
@@ -49,13 +51,6 @@
 					"default": true,
 					"group": "Preview",
 					"description": "Refresh preview live.",
-					"scope": "resource"
-				},
-				"latex.js.compileOnSave": {
-					"type": "boolean",
-					"default": false,
-					"group": "Compilation",
-					"description": "Compile file on save (The file needs to be compiled manually first).",
 					"scope": "resource"
 				},
 				"latex.js.generatorOptions.documentClass": {
@@ -73,10 +68,17 @@
 					"scope": "resource"
 				},
 				"latex.js.generatorOptions.styles": {
-					"type": "boolean",
+					"type": "array",
 					"default": true,
 					"group": "Options",
-					"description": "Absolute path to additional CSS stylesheets.",
+					"description": "Absolute paths to additional CSS stylesheets.",
+					"scope": "resource"
+				},
+				"latex.js.styleOptions.margin": {
+					"type": "string",
+					"default": "50px",
+					"group": "Style",
+					"description": "Margin surrounding content (CSS String).",
 					"scope": "resource"
 				}
 			}
@@ -100,7 +102,5 @@
 		"ts-node": "^9.0.0",
 		"typescript": "^4.0.5"
 	},
-	"dependencies": {
-		"latex.js": "^0.12.4"
-	}
+	"dependencies": {}
 }

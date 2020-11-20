@@ -1,8 +1,5 @@
 // handles latex.js path and configuration etc.
 import * as vscode from 'vscode';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { parse, HtmlGenerator } from 'latex.js';
 
 // wrapper to get the configuration from a document if provided
 export const getConfiguration = async (doc: vscode.TextDocument | undefined = undefined) => {
@@ -25,7 +22,7 @@ export const getConfiguration = async (doc: vscode.TextDocument | undefined = un
     return vscode.workspace.getConfiguration(`latex.js`);
 };
 
-const getLatexJsGeneratorOptionsFromConfig = async (doc: vscode.TextDocument | undefined = undefined) => {
+export const getLatexJsGeneratorOptionsFromConfig = async (doc: vscode.TextDocument | undefined = undefined) => {
     const generatorOptions = (await getConfiguration(doc)).generatorOptions;
     const ret = {
         documentClass: generatorOptions.documentClass ?? `article`,
@@ -35,12 +32,11 @@ const getLatexJsGeneratorOptionsFromConfig = async (doc: vscode.TextDocument | u
     return ret;
 };
 
-// compile text in given editor. throwable.
-export const compileLatexJs = async (editor: vscode.TextEditor): Promise<string> => {
-    const text = editor.document.getText();
-    const generatorOptions = await getLatexJsGeneratorOptionsFromConfig(editor.document);
-    console.log(generatorOptions);
-    const generator = new HtmlGenerator(generatorOptions);
-    const html: string = parse(text, { generator }).htmlDocument().documentElement.outerHTML;
-    return html;
+export const getLatexJsStyleOptionsFromConfig = async (doc: vscode.TextDocument | undefined = undefined) => {
+    const styleOptions = (await getConfiguration(doc)).styleOptions;
+    const ret = {
+        margin: styleOptions.margin ?? `50px`,
+    };
+    return ret;
 };
+
