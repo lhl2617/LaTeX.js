@@ -29,7 +29,7 @@ Provides [LaTeX.js](https://latex.js.org) preview in VSCode.
 
 
 ## Notes
-* [LaTeX.js](https://latex.js) requires a DOM to function--VSCode on Electron does not have a DOM, so rendering is done inside the webview (that contains a DOM). There are ways to get around this (such as [jsdom](https://github.com/jsdom/jsdom)), but it is not that straightforward.
+* [LaTeX.js](https://latex.js.org) requires a DOM to function--VSCode on Electron does not have a DOM, so rendering is done inside the webview (that contains a DOM). There are ways to get around this (such as [jsdom](https://github.com/jsdom/jsdom)), but it is not that straightforward.
 * Compilation requires passing the generated HTML from the webview to the extension, I will look into this if there is demand.
 * There can be an option for selecting the LaTeX.js version wanted, I will add this feature if there exists a need.
 
