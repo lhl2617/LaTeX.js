@@ -27,8 +27,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -39,7 +39,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -65,7 +65,7 @@ table {
 /* make background white and text black */
 body {
     background-color: white;
-    color: black; 
+    color: black;
 }
     </style>
 </head>
@@ -77,7 +77,7 @@ body {
     <script>
         /* load stylesheet */
         const generator = new latexjs.HtmlGenerator({});
-        const g = latexjs.parse("", { generator: generator }); 
+        const g = latexjs.parse("", { generator: generator });
         document.head.appendChild(g.stylesAndScripts("https://cdn.jsdelivr.net/npm/latex.js/dist/"));
     </script>
 
@@ -89,7 +89,7 @@ body {
             const content = document.getElementById("content");
             try {
                 const generator = new latexjs.HtmlGenerator(generatorConfig);
-                const g = latexjs.parse(text, { generator: generator }); 
+                const g = latexjs.parse(text, { generator: generator });
 
                 content.innerHTML = "";
                 content.appendChild(g.domFragment());
@@ -106,7 +106,7 @@ body {
             }
             catch (err) {
                 content.innerHTML = "<div style=\\"color: red\\">" +
-                    "<h1 style=\\"font-size: 2em; margin-bottom: 30px; text-align: center\\">LaTeX.js Compilation failed</h1>" + err + 
+                    "<h1 style=\\"font-size: 2em; margin-bottom: 30px; text-align: center\\">LaTeX.js Compilation failed</h1>" + err +
                 "</div>";
                 
                 /*
